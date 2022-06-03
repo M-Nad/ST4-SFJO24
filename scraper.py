@@ -2,7 +2,7 @@ import twitter_connection_setup
 
 api = twitter_connection_setup.twitter_setup()
 
-def scrapping(query, date1, date2):
+def scrapping(query):
 
     #Nombre de tweets récupérés
     number_of_tweets = 1
@@ -18,4 +18,4 @@ def scrapping(query, date1, date2):
         liste_tweet.append(info)
         print(info)
     return liste_tweet
-scrapping("sport", "2022-06-01", "2022-06-02")
+scrapping("sport")
