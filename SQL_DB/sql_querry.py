@@ -1,6 +1,6 @@
 import sqlite3
 
-db_name = "apprentissage.db"
+db_name = "./apprentissage.db"
 
 def db_connection_open(db_name):
     conn = sqlite3.connect(db_name,)

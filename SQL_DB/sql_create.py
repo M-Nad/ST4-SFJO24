@@ -1,6 +1,6 @@
 import sqlite3
 
-conn = sqlite3.connect("apprentissage.db",)
+conn = sqlite3.connect("./apprentissage.db")
 
 print("Opened database successfully");
 
@@ -10,7 +10,7 @@ cursor.execute("""
 CREATE TABLE IF NOT EXISTS TWEET (
   tweet_id INT PRIMARY KEY,
   user_id VARCHAR(40) NOT NULL,
-  date DATE,
+  date DATETIME,
   text TEXT
 );
  """)
@@ -23,10 +23,5 @@ CREATE TABLE IF NOT EXISTS SCORE (
 """)
 
 print("Table created successfully");
-
-conn.execute("SHOW DATABASES")
-
-for x in conn:
-  print(x)
 
 conn.close()
