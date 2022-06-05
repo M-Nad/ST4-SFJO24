@@ -13,9 +13,10 @@ def scrapping(query):
     for tweet in tweets:
         info = {}
         info["id"] = tweet._json["id"]
-        info["date"] = tweet._json["created_at"]
+        date = '2022-06-' + tweet._json["created_at"][8:10] + ' ' + tweet._json["created_at"][11:19]
+        info["date"] = date
         info["text"] = tweet._json["full_text"] 
         liste_tweet.append(info)
         print(info)
     return liste_tweet
-scrapping("sport")
+scrapping("test")
