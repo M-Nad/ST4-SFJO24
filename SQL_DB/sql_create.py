@@ -10,9 +10,9 @@ cursor.execute("""
 CREATE TABLE IF NOT EXISTS TWEET (
   tweet_id INT PRIMARY KEY,
   user_id VARCHAR(40) NOT NULL,
-  date DATETIME,
-  text TEXT 
-  CONSTRAINT UNIQUE (user_id,date)
+  date TEXT,
+  text TEXT, 
+  CONSTRAINT U_userID_date UNIQUE (user_id,date)
 );
  """)
 

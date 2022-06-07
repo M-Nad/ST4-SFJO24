@@ -11,12 +11,12 @@ def to_db(liste_tweet,path):
     if len(liste_tweet)>0:
         conn = sqlite3.connect(path)
         cur = conn.cursor()
-        query = "INSERT INTO TWEET VALUES "
+        query = "INSERT OR IGNORE INTO TWEET VALUES "
         cur.execute("SELECT COUNT(*) FROM TWEET")
         i = cur.fetchall()[0][0]
         for info in liste_tweet:
             i+=1
-            query += "("+str(i)+","+str(info["id"])+",'"+info["date"]+"',"+"'"+info["text"]+"'"+"), "
+            query += "("+str(i)+","+str(info["id"])+",'"+info["date"]+"',"+'"'+info["text"].replace('"',"''")+'"'+"), "
         print(query[:-2])
         cur.execute(query[:-2])
         conn.commit()
