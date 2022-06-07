@@ -11,7 +11,8 @@ CREATE TABLE IF NOT EXISTS TWEET (
   tweet_id INT PRIMARY KEY,
   user_id VARCHAR(40) NOT NULL,
   date DATETIME,
-  text TEXT
+  text TEXT 
+  CONSTRAINT UNIQUE (user_id,date)
 );
  """)
 
