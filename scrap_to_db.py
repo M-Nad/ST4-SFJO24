@@ -1,4 +1,5 @@
 import sqlite3
+import pandas as pd
 
 path = "./SQL_DB/apprentissage.db"
 
@@ -24,8 +25,11 @@ def dateformat(date):
     d = D[2]
     return Y + "-" + M + "-" + d + " " + T
 
+def date_only(date):
+    return date[:10]
 
-def to_db(liste_tweet,path):
+
+def to_db(liste_tweet,path="./SQL_DB/apprentissage.db"):
     #liste_tweet = [info]
     #info : dict
     #info["id"] = tweet._json["id"]
@@ -48,6 +52,15 @@ def to_db(liste_tweet,path):
         print("Done")
     else:
         print("Empty INSERT list")
+
+def db_to_dataframe(path="./SQL_DB/apprentissage.db"):
+    conn = sqlite3.connect(path)
+    cur = conn.cursor()
+    res = pd.read_sql_query("SELECT t.tweet_id, t.date, s.score from SCORE s JOIN TWEET t ON s.tweet_id = t.tweet_id", conn)
+    res['date'] = res['date'].apply(date_only)
+    conn.close()
+    return res
+
 
 
 #I1 = {"id":101,"date":"2021-01-02 11:02:33","text":"Tweet test n1"}
