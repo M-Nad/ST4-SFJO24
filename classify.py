@@ -1,8 +1,7 @@
+import pandas as pd
+
 FILE = "file.txt"
 DELIMITER = "---"
-
-POS = "pos.txt"
-NEG = "neg.txt"
 
 content = ""
 
@@ -12,15 +11,16 @@ with open(FILE,"r") as f:
 
 tweets = content.split("---")
 
+lst = []
+
 for i in range (len(tweets)):
     print(tweets[i])
     val = input("Posifif ou Negatif (y/n)?")
     if val == "y":
-        with open(POS,"a") as file:
-            file.write(tweets[i]+"---")
-            file.close()
+        lst +=[[tweets[i], 1]]
     elif val == "n":
-        with open(NEG,"a") as file:
-            file.write(tweets[i]+"---")
-            file.close()
+        lst +=[[tweets[i], 0]]
 
+df = pd.DataFrame(lst,columns=["text","sentiment"])
+
+df.to_csv("database.csv")
