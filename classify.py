@@ -1,4 +1,3 @@
-from textwrap import TextWrapper
 import pandas as pd
 import re
 
@@ -25,6 +24,7 @@ lst = []
 for i in range(len(tweets)):
     if len(tweets[i]) > 1:
         tweets[i] = tweets[i].strip()
+        tweets[i] = tweets[i].replace("\n","")
         print(tweets[i])
         val = input("Posifif ou Negatif (y/n)? \n")
         if val == "y":
