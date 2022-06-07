@@ -1,15 +1,25 @@
+from textwrap import TextWrapper
 import pandas as pd
+import re
 
-FILE = "file.txt"
+FILE = "tweets.txt"
 DELIMITER = "---"
+
 
 content = ""
 
-with open(FILE,"r") as f:
+with open(FILE,"r",encoding="utf8") as f:
     content = f.read()
     f.close()
+# print(content[:100])
+# print(re.split("'text': '",content)[1])
+# exit()
+tweets = []
+content2 = re.split("'text': '",content)
 
-tweets = content.split("---")
+for elem in content2:
+    if (elem[:5] != "{'id'"):
+        tweets += [re.split("', 'nombre_likes'",elem)[0]]
 
 lst = []
 
