@@ -9,7 +9,7 @@ def text_to_dict(file):
         content = f.read()
         f.close()
 
-    ls_raw = re.split(pattern)
+    ls_raw = re.split(pattern,content)
 
     ls_dict = []
     tweet_dict = {}
