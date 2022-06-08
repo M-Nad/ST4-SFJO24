@@ -9,8 +9,4 @@ def db_to_dataframe(path="./SQL_DB/apprentissage.db"):
     conn.close()
     return res.to_numpy()
 
-res = db_to_dataframe(path="./SQL_DB/apprentissage.db")
-print(res)
-print(res.shape)
-print(res[0][0])
-print(res[0][1])
+#print(db_to_dataframe(path="./SQL_DB/apprentissage.db"))
