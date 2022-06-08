@@ -21,6 +21,7 @@ for elem in content2:
 for i in range(len(tweets)):
     tweets[i] = tweets[i].replace(r"\n"," ")
     tweets[i] = re.sub('@\w+',"",tweets[i])
+    tweets[i] = re.sub('#\w+',"",tweets[i])
 
 with open(OUTPUT,"w", encoding="utf8") as f:
     f.writelines(tweets)
