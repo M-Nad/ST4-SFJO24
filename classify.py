@@ -1,7 +1,7 @@
 import pandas as pd
 import re
 
-FILE = "C:/Users/bertd/OneDrive/Bureau/Scolaire 1A CS/EI ST4/ST4-SFJO24/tweets.txt"
+FILE = "tweets.txt"
 DELIMITER = "---"
 
 content = ""
@@ -26,12 +26,14 @@ for i in range(len(tweets)):
         tweets[i] = tweets[i].strip()
         tweets[i] = tweets[i].replace("\n","")
         print(tweets[i])
-        val = input("Posifif ou Negatif (y/n)? \n")
+        val = input("Posifif ou Negatif (y/n/h)? \n")
         if val == "y":
             lst += [[tweets[i], 1]]
         elif val == "n":
-            lst += [[tweets[i], 0]]
+            lst += [[tweets[i], -1]]
+        elif val == "h":
+            lst +=[[tweets[i],0]]
 
 df = pd.DataFrame(lst, columns=["text", "sentiment"])
 
-df.to_csv("database.csv")
+df.to_csv("database2.csv")
