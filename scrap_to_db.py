@@ -42,9 +42,10 @@ def to_db(liste_tweet,path="./SQL_DB/apprentissage.db"):
         cur.execute("SELECT COUNT(*) FROM TWEET")
         i = cur.fetchall()[0][0]
         for info in liste_tweet:
+            tweet_text = info["text"].replace("'","''")
             i+=1
             date = dateformat(info["date"])
-            query += "("+str(i)+","+str(info["id"])+",'"+date+"',"+'"'+info["text"].replace('"',"''")+'"'+"), "
+            query += "("+str(i)+","+str(info["id"])+",'"+date+"',"+'"'+tweet_text+'"'+"), "
         print(query[:-2])
         cur.execute(query[:-2])
         conn.commit()
