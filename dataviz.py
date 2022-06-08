@@ -10,15 +10,16 @@ sns.set(style="darkgrid")
 db = STDB.db_to_dataframe()
 
 def chart_bar_count(db):
-    dict_chart = {"date":[],"score":[],"count":[]}
+    dict_chart = {"date":[],"Score":[],"Nombre de tweets":[]}
     dict_count = db.groupby(["date","score"]).count().to_dict()["tweet_id"]
     for key in dict_count:
         dict_chart["date"].append(key[0])
-        dict_chart["score"].append(key[1])
-        dict_chart["count"].append(dict_count[key])
+        dict_chart["Score"].append(key[1])
+        dict_chart["Nombre de tweets"].append(dict_count[key])
     chart_dataframe = pd.DataFrame(dict_chart)
     fig = plt.figure()
-    sns.catplot(data=chart_dataframe, x="date", y="count", hue="score", kind = "bar")
+    colors = [sns.color_palette()[i] for i in [3,7,2]]
+    sns.catplot(data=chart_dataframe, x="date", y="Nombre de tweets", hue="Score", kind = "bar",palette=colors)
     return chart_dataframe
 
 def chart_bar_percent(db):
