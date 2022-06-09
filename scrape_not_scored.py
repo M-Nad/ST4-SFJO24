@@ -2,6 +2,7 @@ import sqlite3
 import pandas as pd
 import numpy as np
 
+#récupère les tweets non scorés de la database apprentissage.db
 def db_to_dataframe(path="./SQL_DB/apprentissage.db"):
     conn = sqlite3.connect(path)
     cur = conn.cursor()

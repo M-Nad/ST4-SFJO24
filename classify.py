@@ -1,7 +1,8 @@
+# -*- coding: utf-8 -*-
 import pandas as pd
 import re
 
-FILE = "databaseafinir.txt"
+FILE = "C:/Users/bertd/OneDrive/Bureau/Scolaire 1A CS/EI ST4/ST4-SFJO24/databaseset3.txt"
 DELIMITER = "---"
 
 content = ""
@@ -24,7 +25,7 @@ lst = []
 for i in range(len(tweets)):
     if len(tweets[i]) > 1:
         tweets[i] = tweets[i].strip()
-        tweets[i] = tweets[i].replace("\n","")
+        tweets[i] = tweets[i].replace("\n", "")
         print(tweets[i])
         val = input("Posifif ou Negatif (y/n/h)? \n")
         if val == "y":
@@ -32,8 +33,8 @@ for i in range(len(tweets)):
         elif val == "n":
             lst += [[tweets[i], -1]]
         elif val == "h":
-            lst +=[[tweets[i],0]]
+            lst += [[tweets[i], 0]]
 
 df = pd.DataFrame(lst, columns=["text", "sentiment"])
 
-df.to_csv("databaset5.csv")
+df.to_csv("databaset3.csv")

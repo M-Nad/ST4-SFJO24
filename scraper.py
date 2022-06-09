@@ -3,18 +3,22 @@ import twitter_connection_setup
 
 api = twitter_connection_setup.twitter_setup()
 
+
 def scrapping(query):
 
-    #Nombre de tweets récupérés
-    number_of_tweets = 100
+    # Nombre de tweets récupérés
+    number_of_tweets = 50
 
-    #Récupération des tweets
-    tweets = api.search_tweets(q = query + " " + "since_time:1656850855 until_time:1656861655" + " " + "-filter:retweets AND -filter:links", lang = "en", count = number_of_tweets, tweet_mode="extended")
+    # Récupération des tweets
+    tweets = api.search_tweets(q=query + " " + " " +
+                               "-filter:retweets AND -filter:links", lang="en", count=number_of_tweets, tweet_mode="extended")
     liste_tweet = []
     for tweet in tweets:
         info = {}
         info["id"] = tweet._json["id"]
-        date = '2022-06-' + tweet._json["created_at"][8:10] + ' ' + tweet._json["created_at"][11:19]
+        date = '2022-06-' + \
+            tweet._json["created_at"][8:10] + ' ' + \
+            tweet._json["created_at"][11:19]
         info["date"] = date
         texte = tweet._json["full_text"]
         #texte.replace(" ' ", ' " ')
@@ -23,6 +27,8 @@ def scrapping(query):
         info["nombre_likes"] = tweet._json["favorite_count"]
         info["nombre_retweets"] = tweet._json["retweet_count"]
         liste_tweet.append(info)
-        print(info)
+        print(info) #afficher les tweets dans la console 
     return liste_tweet
-scrapping("boris johnson")
+
+
+scrapping("#BackBoris")
