@@ -1,7 +1,8 @@
 # ST4-SFJO24
 Problématique :
 
-L’impact du scandale du Stade de France sur l’e-réputation des JO2024
+L’e-réputation du premier ministre anglais Boris Jonhson :
+Comment le retour autour du scandale du "partygate" affecte les avis de internautes vis-à-vis de Boris Johnson sur Twitter ?
 
 Cadre : ST4 DATA WEB
 
@@ -14,10 +15,13 @@ Groupe 4 :
 
 # Objectif :
 
-Quantifier, interpréter et visualiser l'impact du scandale international de la finale de Ligue des Champions au Stade de France (Seine Saint-Denis) sur l'e-reputation des JO de Paris pour 2024.
+Quantifier, interpréter et visualiser l'impact du scandale du "partygate" sur l'e-réputation de Boris Jonhson.
 
-Il s'agira de réaliser un scraping de données sur Twitter, d'analyser les tweets avant et après l'événement pour évaluer l'impact du scandale.
+Il s'agira de réaliser un scraping de données sur Twitter, d'analyser les sentiments (positif, négatif ou neutre) dans les tweets avant et après le vote de confiance au Royaume-Uni.
 
 Outils Principaux :
 - Python
-- API.2 de Twitter
+- API.2 de Twitter ( scraping )
+- Base de donnée SQLite ( stockage des tweets )
+- Scikit-Learn ( apprentissage et mise en place d'un classifieur : arbre de décision )
+- Seaborn ( dataviz )
