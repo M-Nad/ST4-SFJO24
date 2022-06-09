@@ -8,7 +8,7 @@ import pickle
 import pandas as pd
 import utils.lemma_token as LT
 
-csv_path = '.\csv\database08.csv'
+csv_path = '.\csv\db_apprentissage.csv'
 
 def regenerate_classifier(csv_path = '.\csv\database08.csv',filename = 'tree_classifier.sav'):
 

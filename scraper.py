@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import twitter_connection_setup
-import scrap_to_db
+import utils.scrap_to_db as STDB
 
 api = twitter_connection_setup.twitter_setup()
 
@@ -25,13 +25,13 @@ def scrapping(query):
         texte=texte.replace("'"," ")
         texte=texte.replace('"'," ")
         #texte.replace(" ' ", ' " ')
-        texte = texte.strip('\n')
+        texte = texte.strip('\n') 
         info["text"] = texte
         info["nombre_likes"] = tweet._json["favorite_count"]
         info["nombre_retweets"] = tweet._json["retweet_count"]
         liste_tweet.append(info)
         print(info) #afficher les tweets dans la console 
-        scrap_to_db.to_db(liste_tweet)
+        STDB.to_db(liste_tweet)
     return liste_tweet
 
 
