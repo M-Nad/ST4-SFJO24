@@ -68,7 +68,7 @@ def db_to_dataframe(path="./SQL_DB/tweet_SQL_database.db"):
 def db_to_dataframe_sentiwordnet(path="./SQL_DB/tweet_SQL_database.db"):
     conn = sqlite3.connect(path)
     cur = conn.cursor()
-    res = pd.read_sql_query("SELECT t.tweet_id, t.date, s.score from SCORE s JOIN TWEET t ON s.tweet_id = t.tweet_id", conn)
+    res = pd.read_sql_query("SELECT t.tweet_id, t.date, s.score_sentiwordnet from SCORE_SENTIWORDNET s JOIN TWEET t ON s.tweet_id = t.tweet_id", conn)
     res['date'] = res['date'].apply(date_only)
     conn.close()
     return res
