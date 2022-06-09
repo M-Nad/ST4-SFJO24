@@ -1,8 +1,9 @@
 import sqlite3
 import pandas as pd
 
-path = "./SQL_DB/tweet_SQL_database.db"
+path = "../SQL_DB/tweet_SQL_database.db"
 
+# remet au bon format la date twitter
 def dateformat(date):
     month = {
         'Jun':'01',
@@ -28,6 +29,7 @@ def dateformat(date):
 def date_only(date):
     return date[:10]
 
+# prend une liste de tweets ( liste de dictionnaires ) issue du scraping et les insert dans la database SQL
 def to_db(liste_tweet,path="./SQL_DB/tweet_SQL_database.db"):
     #liste_tweet = [info]
     #info : dict
@@ -53,6 +55,7 @@ def to_db(liste_tweet,path="./SQL_DB/tweet_SQL_database.db"):
     else:
         print("Empty INSERT list")
 
+# renvoie une dataframe contenant la note des tweets, leur id et la date
 def db_to_dataframe(path="./SQL_DB/tweet_SQL_database.db"):
     conn = sqlite3.connect(path)
     cur = conn.cursor()

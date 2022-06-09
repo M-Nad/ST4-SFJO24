@@ -1,6 +1,7 @@
 import pandas as pd
 import sqlite3
 
+# renvoie une dataframe pandas depuis la base de données qui comporte les tweets pas encore notés ( sentiwordnet )
 def db_unscored_sentiwordnet_to_dataframe(path="./SQL_DB/tweet_SQL_database.db"):
     conn = sqlite3.connect(path)
     cur = conn.cursor()

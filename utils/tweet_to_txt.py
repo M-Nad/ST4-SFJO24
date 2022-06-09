@@ -6,6 +6,8 @@ DELIMITER = "---"
 
 content = ""
 
+# asssiste la labelisation des tweets pour la base d'entrainement
+
 with open(FILE, "r", encoding="utf8") as f:
     content = f.read()
     f.close()

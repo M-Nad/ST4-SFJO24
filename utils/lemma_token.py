@@ -5,6 +5,7 @@ from nltk.tokenize import word_tokenize
 lemmatizer = WordNetLemmatizer()
 untouched = ["us"]
 
+# permet de tokeniser une chaine de caractères + suppprime les smiley par decodage ascii, renvoie une liste
 def tweet_tokenizer(text):
     filtered_tokens = []
     txt_formated = text.replace("\\n"," ")
@@ -16,6 +17,7 @@ def tweet_tokenizer(text):
             filtered_tokens.append(token)
     return filtered_tokens
 
+# tokenise et lemmatize une chaine de caractères
 def tweet_tokenizer_lemmatizer(text):
     tokens = tweet_tokenizer(text)
     tokens_lemmatized = []
