@@ -15,8 +15,9 @@ def text_to_dict(file):
     ls_dict = []
     tweet_dict = {}
     for elem in ls_raw:
-        if len(elem) > 0:
-            # print(elem)
+        space = re.findall("\s*\n",elem)
+        if len(elem) > 0 and (len(space) == 0 or len(space[0]) < len(elem) ):
+            print(elem)
             if "id" not in tweet_dict:
                 tweet_dict["id"] = int(elem)
             elif "date" not in tweet_dict:
