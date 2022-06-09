@@ -64,6 +64,14 @@ def db_to_dataframe(path="./SQL_DB/tweet_SQL_database.db"):
     conn.close()
     return res
 
+# renvoie une dataframe contenant la note  sentiwordnet des tweets, leur id et la date
+def db_to_dataframe_sentiwordnet(path="./SQL_DB/tweet_SQL_database.db"):
+    conn = sqlite3.connect(path)
+    cur = conn.cursor()
+    res = pd.read_sql_query("SELECT t.tweet_id, t.date, s.score from SCORE s JOIN TWEET t ON s.tweet_id = t.tweet_id", conn)
+    res['date'] = res['date'].apply(date_only)
+    conn.close()
+    return res
 
 
 #I1 = {"id":101,"date":"2021-01-02 11:02:33","text":"Tweet test n1"}

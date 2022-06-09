@@ -1,13 +1,14 @@
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
-import scrap_to_db as STDB
+import utils.scrap_to_db as STDB
 
 
 # set a grey background (use sns.set_theme() if seaborn version 0.11.0 or above) 
 sns.set(style="darkgrid")
 
 db = STDB.db_to_dataframe()
+db_senti = STDB.db_to_dataframe_sentiwordnet()
 
 def chart_bar_count(db):
     dict_chart = {"date":[],"Score":[],"Nombre de tweets":[]}
@@ -95,6 +96,9 @@ C_count = chart_bar_count(db)
 C_percent = chart_bar_percent(db)
 Pie_percent = chart_pie(db)
 
+C_count_senti = chart_bar_count(db_senti)
+C_percent_senti = chart_bar_percent(db_senti)
+Pie_percent_senti = chart_pie(db_senti)
 
 #sns.displot(data=x, x="date",y="tweet_id", hue="score")
 #sns.catplot(data=x, x="date", y="Count", hue="score", kind = "bar")
