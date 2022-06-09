@@ -6,10 +6,10 @@ api = twitter_connection_setup.twitter_setup()
 def scrapping(query):
 
     #Nombre de tweets récupérés
-    number_of_tweets = 50
+    number_of_tweets = 100
 
     #Récupération des tweets
-    tweets = api.search_tweets(q = query + + " " + "since_time:1654345488 until_time:1654359888" + " " + "-filter:retweets AND -filter:links", lang = "en", count = number_of_tweets, tweet_mode="extended")
+    tweets = api.search_tweets(q = query + " " + "since_time:1656850855 until_time:1656861655" + " " + "-filter:retweets AND -filter:links", lang = "en", count = number_of_tweets, tweet_mode="extended")
     liste_tweet = []
     for tweet in tweets:
         info = {}

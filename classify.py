@@ -1,7 +1,7 @@
 import pandas as pd
 import re
 
-FILE = "tweets.txt"
+FILE = "databaseafinir.txt"
 DELIMITER = "---"
 
 content = ""
@@ -36,4 +36,4 @@ for i in range(len(tweets)):
 
 df = pd.DataFrame(lst, columns=["text", "sentiment"])
 
-df.to_csv("database2.csv")
+df.to_csv("databaset5.csv")
