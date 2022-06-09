@@ -32,4 +32,9 @@ def score_df_to_db(dataframe,path="./SQL_DB/tweet_SQL_database.db"):
     else:
         print("Empty INSERT list")
 
+def score_database(path="./SQL_DB/tweet_SQL_database.db"):
+    df = db_unscored_to_dataframe(path)
+    score_df = dataframe_to_score_df(df)
+    score_df_to_db(score_df,path)
+
 #print(db_unscored_to_dataframe())
