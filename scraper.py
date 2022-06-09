@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import twitter_connection_setup
+import scrap_to_db
 
 api = twitter_connection_setup.twitter_setup()
 
@@ -21,6 +22,8 @@ def scrapping(query):
             tweet._json["created_at"][11:19]
         info["date"] = date
         texte = tweet._json["full_text"]
+        texte=texte.replace("'"," ")
+        texte=texte.replace('"'," ")
         #texte.replace(" ' ", ' " ')
         texte = texte.strip('\n')
         info["text"] = texte
@@ -28,6 +31,7 @@ def scrapping(query):
         info["nombre_retweets"] = tweet._json["retweet_count"]
         liste_tweet.append(info)
         print(info) #afficher les tweets dans la console 
+        scrap_to_db.to_db(liste_tweet)
     return liste_tweet
 
 
