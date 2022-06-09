@@ -20,7 +20,7 @@ def chart_bar_count(db):
     fig = plt.figure()
     colors = [sns.color_palette()[i] for i in [3,7,2]]
     sns.catplot(data=chart_dataframe, x="date", y="Nombre de tweets", hue="Score", kind = "bar",palette=colors)
-    plt.savefig('chart_bar_count_score.png')
+    plt.savefig('./chart/chart_bar_count_score.png')
     return chart_dataframe
 
 def chart_bar_percent(db):
@@ -69,7 +69,7 @@ def chart_bar_percent(db):
     colors = [sns.color_palette('pastel')[i] for i in [3,7,2]]
     fig = plt.figure()
     sns.catplot(data=percent_df, x="date", y="Pourcentage", hue="Score", kind = "bar", palette=colors)
-    plt.savefig('chart_bar_percent_score.png')
+    plt.savefig('./chart/chart_bar_percent_score.png')
     return percent_df
 
 def chart_pie(db):
@@ -86,7 +86,7 @@ def chart_pie(db):
         fig = plt.figure()
         plt.pie(data, labels = labels, colors = colors, autopct='%.0f%%')
         plt.show()
-        plt.savefig('chart_pie_score.png')
+        plt.savefig('./chart/chart_pie_score.png')
         return data
     else:
         print("No scores")
