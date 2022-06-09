@@ -1,4 +1,5 @@
 import re
+from scrap_to_db import to_db
 
 # tweet = r"{'id': 1533327171355299841, 'date': '2022-06-05 05:57:40', 'text': \"Future history lesson: PM Boris Johnson pictured at Queen Elizabeth's Platinum Jubilee celebrations prior to this highly unpopular PM forced resignation. Johnson was loudly booed the previous day by a crowd watching dignitaries arrive at St Paul's.  #JohnsonOut131 #JohnsonOut\", 'nombre_likes': 2, 'nombre_retweets': 1}"
 
@@ -30,5 +31,8 @@ def text_to_dict(file):
                 tweet_dict["nb_rt"] = int(elem)
                 ls_dict += [tweet_dict]
                 tweet_dict = {}
-    print(ls_dict)
+    # return list_dict
+    to_db(ls_dict)
+
+
         
