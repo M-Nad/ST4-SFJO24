@@ -39,6 +39,7 @@ def regenerate_classifier(csv_path = '.\csv\database08.csv',filename = 'tree_cla
 
 def predict(X_data,csv_path = '.\csv\database08.csv',filename = 'tree_classifier.sav'):
 
+    # ouverture du classifier et vectorisation des données d'entrée
     with open('vocabulary_dic.json') as f:
         voc = json.load(f)
     tweet_tokenizer = LT.tweet_tokenizer_lemmatizer
@@ -53,7 +54,3 @@ def predict(X_data,csv_path = '.\csv\database08.csv',filename = 'tree_classifier
     X = tf_transformer.transform(X_counts)
     Y_predicted = loaded_clf.predict(X)
     return Y_predicted.tolist()
-
-
-#X=["negative","positive"]
-#print(predict(X))
