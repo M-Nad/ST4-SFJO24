@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from tree_classifier import predict
 
-def db_unscored_to_dataframe(path="./SQL_DB/apprentissage.db"):
+def db_unscored_to_dataframe(path="./SQL_DB/tweet_SQL_database.db"):
     conn = sqlite3.connect(path)
     cur = conn.cursor()
     res = pd.read_sql_query("SELECT t.tweet_id, t.text from TWEET t LEFT JOIN SCORE s ON s.tweet_id = t.tweet_id WHERE s.tweet_id IS Null", conn)
@@ -17,7 +17,7 @@ def dataframe_to_score_df(dataframe):
     res["score"] = Y_predicted
     return res
 
-def score_df_to_db(dataframe,path="./SQL_DB/apprentissage.db"):
+def score_df_to_db(dataframe,path="./SQL_DB/tweet_SQL_database.db"):
     if len(dataframe)>0:
         conn = sqlite3.connect(path)
         cur = conn.cursor()
