@@ -48,6 +48,7 @@ score_database()
 3 ) Scoring via Sentiwordnet :
 
 Implémentation sur un Collab, non présent sur ce git
+Lien vers le Colab : https://colab.research.google.com/drive/1NdyFAIwuAchZHgBu5Dg8s0VP2q4hs1J9?usp=sharing
 
 4 ) Visualisation des données :
 
